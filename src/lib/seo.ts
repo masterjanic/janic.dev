@@ -1,11 +1,12 @@
-import config from "~/config";
 import { type Metadata } from "next";
 
+import config from "~/config";
+
 function generateOpenGraph({
-                             title,
-                             description,
-                             url = "/",
-                           }: {
+  title,
+  description,
+  url = "/",
+}: {
   title?: string;
   description?: string;
   url?: string;

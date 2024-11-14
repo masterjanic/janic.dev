@@ -8,7 +8,7 @@ import config from "~/config";
 
 export default function Hero() {
   return (
-    <section className="bg-primary relative isolate h-[700px]">
+    <section className="relative isolate h-[700px] bg-primary">
       <Container className="relative h-full">
         <div className="flex h-full items-center max-md:pb-96">
           <div className="space-y-6">
