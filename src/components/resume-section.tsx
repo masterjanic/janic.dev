@@ -22,24 +22,24 @@ export function ResumeSection() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card className="bg-accent/20 transition duration-300 hover:scale-[102%]">
               <CardHeader>
-                <span className="text-primary text-3xl font-black tracking-tighter">
+                <span className="text-3xl font-black tracking-tighter text-primary">
                   <time dateTime="2010">2010</time>-
                   <time dateTime="2022">2022</time>
                 </span>
                 <CardTitle className="text-2xl font-medium">
                   A-Levels (Abitur)
                 </CardTitle>
-                <span className="text-muted-foreground text-sm font-medium uppercase tracking-wider">
+                <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   Prof. Dr. Max Schneider Gymnasium
                 </span>
               </CardHeader>
               <CardContent>
                 <ul>
-                  <li className="[&>svg]:text-primary flex [&>svg]:mr-1.5 [&>svg]:mt-1">
+                  <li className="flex [&>svg]:mr-1.5 [&>svg]:mt-1 [&>svg]:flex-shrink-0 [&>svg]:text-primary">
                     <LucidePlus size={16} />
                     Advanced courses in mathematics and physics
                   </li>
-                  <li className="[&>svg]:text-primary flex [&>svg]:mr-1.5 [&>svg]:mt-1">
+                  <li className="flex [&>svg]:mr-1.5 [&>svg]:mt-1 [&>svg]:flex-shrink-0 [&>svg]:text-primary">
                     <LucidePlus size={16} />
                     Participation in Cambridge course (C1) and working group
                     &lsquo;Computer networks&rsquo;
@@ -49,24 +49,24 @@ export function ResumeSection() {
             </Card>
             <Card className="bg-accent/20 transition duration-300 hover:scale-[102%]">
               <CardHeader>
-                <span className="text-primary text-3xl font-black tracking-tighter">
+                <span className="text-3xl font-black tracking-tighter text-primary">
                   <time dateTime="2022">2022</time>-Now
                 </span>
                 <CardTitle className="text-2xl font-medium">
                   B.Sc. Computer Science
                 </CardTitle>
-                <span className="text-muted-foreground text-sm font-medium uppercase tracking-wider">
+                <span className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   IU International University of Applied Sciences
                 </span>
               </CardHeader>
               <CardContent>
                 <ul>
-                  <li className="[&>svg]:text-primary flex [&>svg]:mr-1.5 [&>svg]:mt-1">
+                  <li className="flex [&>svg]:mr-1.5 [&>svg]:mt-1 [&>svg]:flex-shrink-0 [&>svg]:text-primary">
                     <LucidePlus size={16} />
                     Courses in software development, databases, and computer
                     networks
                   </li>
-                  <li className="[&>svg]:text-primary flex [&>svg]:mr-1.5 [&>svg]:mt-1">
+                  <li className="flex [&>svg]:mr-1.5 [&>svg]:mt-1 [&>svg]:flex-shrink-0 [&>svg]:text-primary">
                     <LucidePlus size={16} />
                     Current average grade: 1.84
                   </li>

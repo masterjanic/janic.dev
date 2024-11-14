@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="border-primary">
       <Container>
-        <Separator className="bg-primary h-[2px]" />
+        <Separator className="h-[2px] bg-primary" />
         <div className="my-12 flex flex-col gap-12 md:flex-row md:justify-between md:gap-24 lg:my-24">
           <div className="space-y-6">
             <h2 className="max-w-xs text-3xl font-extrabold md:text-4xl lg:max-w-lg">
@@ -24,7 +24,7 @@ export default function Footer() {
             <li>
               <Link
                 href={config.socials.github}
-                className="[&>svg]:text-muted-foreground [&>svg]:hover:text-primary flex items-center [&>svg]:mr-1.5 [&>svg]:transition [&>svg]:duration-300"
+                className="flex items-center [&>svg]:mr-1.5 [&>svg]:flex-shrink-0 [&>svg]:text-muted-foreground [&>svg]:transition [&>svg]:duration-300 [&>svg]:hover:text-primary"
                 target="_blank"
               >
                 <LucideGithub size={16} />
@@ -34,7 +34,7 @@ export default function Footer() {
             <li>
               <Link
                 href={config.socials.linkedin}
-                className="[&>svg]:text-muted-foreground [&>svg]:hover:text-primary flex items-center [&>svg]:mr-1.5 [&>svg]:transition [&>svg]:duration-300"
+                className="flex items-center [&>svg]:mr-1.5 [&>svg]:flex-shrink-0 [&>svg]:text-muted-foreground [&>svg]:transition [&>svg]:duration-300 [&>svg]:hover:text-primary"
                 target="_blank"
               >
                 <LucideLinkedin size={16} />
