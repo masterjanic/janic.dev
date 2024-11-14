@@ -31,7 +31,8 @@ export default function Hero() {
             className="-z-10 select-none object-cover object-right"
             draggable={false}
             sizes="100vw"
-            placeholder="blur"
+            placeholder="empty"
+            priority
             fill
           />
         </div>
