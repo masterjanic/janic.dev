@@ -8,6 +8,7 @@ export default function PersonLd() {
         "@context": "https://schema.org",
         "@type": "Person",
         "@id": `${config.baseUrl.origin}/#person`,
+        image: `${config.baseUrl.origin}/images/janic-bellmann-pfp.png`,
         description: "A student and developer from Germany.",
         jobTitle: "Student",
         email: config.mail,
