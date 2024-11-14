@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 
+import BgTiles from "~/components/bg-tiles";
 import Container from "~/components/ui/container";
 import config from "~/config";
 
@@ -14,8 +15,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="py-16 lg:py-20">
+    <main className="relative py-16 lg:py-20">
       <Container>
+        <BgTiles />
         <article className="prose prose-neutral relative dark:prose-invert prose-h2:underline prose-h2:decoration-primary prose-p:text-justify prose-a:text-primary prose-a:no-underline prose-a:transition prose-a:duration-300 hover:prose-a:text-primary/80">
           <h1>Legal Notice</h1>
           <small>
