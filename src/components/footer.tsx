@@ -43,11 +43,22 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="pb-6">
+        <div className="flex flex-col justify-between gap-4 pb-6 md:flex-row md:items-center">
           <small className="text-muted-foreground">
             &copy; Copyright {new Date().getFullYear()}&nbsp;&nbsp;&ndash;{" "}
-            <Link href="/">Janic Bellmann</Link>
+            <Link
+              href="/"
+              className="transition duration-300 hover:text-primary"
+            >
+              Janic Bellmann
+            </Link>
           </small>
+          <Link
+            href="/legal"
+            className="text-sm text-muted-foreground transition duration-300 hover:text-primary"
+          >
+            Legal
+          </Link>
         </div>
       </Container>
     </footer>
