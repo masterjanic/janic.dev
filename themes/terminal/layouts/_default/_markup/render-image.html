@@ -1,0 +1,7 @@
+{{- if not .PlainText -}}{{- errorf "%s: image %q needs alt text" .Page.Path .Destination -}}{{- end -}}
+{{- $res := .Page.Resources.Get .Destination -}}
+{{- if and $res (in (slice "image/jpeg" "image/png" "image/webp" "image/avif") $res.MediaType.Type) -}}
+  {{- partial "image.html" (dict "res" $res "alt" .PlainText) -}}
+{{- else -}}
+<img src="{{ with $res }}{{ .RelPermalink }}{{ else }}{{ $.Destination | safeURL }}{{ end }}" alt="{{ .PlainText }}" loading="lazy" decoding="async">
+{{- end -}}

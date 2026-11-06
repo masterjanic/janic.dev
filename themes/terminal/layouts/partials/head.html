@@ -1,0 +1,59 @@
+{{- $iso := "2006-01-02T15:04:05Z07:00" -}}
+{{- $title := .Title -}}
+{{- if .IsHome -}}
+{{- else if eq .Kind "term" -}}{{- $title = printf "Posts tagged %s | %s" .Title site.Title -}}
+{{- else -}}{{- $title = printf "%s | %s" .Title site.Title -}}{{- end -}}
+{{- $description := or .Description (.Summary | plainify | strings.TrimSpace) site.Title -}}
+{{- if eq .Kind "term" -}}{{- $description = printf "All posts tagged %s by %s." .Title site.Title -}}{{- end -}}
+{{- /* Paginated pages canonicalise to themselves, never to page 1. */ -}}
+{{- $canonical := .Permalink -}}
+{{- if in (slice "section" "term") .Kind -}}{{- $canonical = .Paginator.URL | absURL -}}{{- end -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ site.Params.author.name }}">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0c1110">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7faf8">
+{{- if .Params.noindex }}
+<meta name="robots" content="noindex">
+{{- end }}
+{{- if ne .Kind "404" }}
+<link rel="canonical" href="{{ $canonical }}">
+{{- end }}
+{{ partial "assets-css.html" . }}
+{{- /* Exact-size PNGs: the icon is pixel art, and browsers scale an SVG favicon instead of using the 16px glyph. */}}
+<link rel="icon" href="{{ "favicon-16x16.png" | relURL }}" type="image/png" sizes="16x16">
+<link rel="icon" href="{{ "favicon-32x32.png" | relURL }}" type="image/png" sizes="32x32">
+<link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+{{- with site.Home.OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
+{{- end }}
+{{- if ne .Kind "404" }}
+{{- $og := partialCached "og-image.html" . .RelPermalink }}
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if eq .Section "posts" | and .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:image" content="{{ $og.url }}">
+<meta property="og:image:width" content="{{ $og.width }}">
+<meta property="og:image:height" content="{{ $og.height }}">
+<meta property="og:image:alt" content="{{ .Title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $og.url }}">
+{{- if and .IsPage (eq .Section "posts") }}
+<meta property="article:published_time" content="{{ .PublishDate.Format $iso }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format $iso }}">
+<meta property="article:author" content="{{ "about/" | absURL }}">
+{{- range .Params.tags }}
+<meta property="article:tag" content="{{ . }}">
+{{- end }}
+{{- end }}
+{{ partial "schema.html" (dict "page" . "og" $og "canonical" $canonical "description" $description) }}
+{{- end }}

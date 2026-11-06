@@ -1,0 +1,14 @@
+/feed /index.xml 301
+/rss.xml /index.xml 301
+
+# Replace the host's 307 normalisation with permanent redirects.
+# Add a line for each new top-level page.
+/index.html / 301
+/about /about/ 301
+/legal /legal/ 301
+/privacy /privacy/ 301
+/posts /posts/ 301
+/posts/:slug /posts/:slug/ 301
+/posts/page/:n /posts/page/:n/ 301
+/tags /tags/ 301
+/tags/:tag /tags/:tag/ 301

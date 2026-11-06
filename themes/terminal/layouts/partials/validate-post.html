@@ -1,0 +1,4 @@
+{{- /* Fails the build on posts missing fields that SEO depends on. */ -}}
+{{- if not .Description -}}{{- errorf "%s: description is required" .Path -}}{{- end -}}
+{{- if not .Params.tags -}}{{- errorf "%s: at least one tag is required" .Path -}}{{- end -}}
+{{- if not .Params.date -}}{{- errorf "%s: date is required" .Path -}}{{- end -}}

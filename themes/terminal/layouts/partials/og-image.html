@@ -1,0 +1,15 @@
+{{- /* Returns the social image for a page: its cover, or a generated title card. */ -}}
+{{- $img := false -}}
+{{- with .Params.cover -}}
+  {{- with $.Resources.Get . -}}{{- $img = .Fill "1200x630 jpg q85" -}}{{- end -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- $base := resources.Get "images/og-base.png" -}}
+  {{- $font := resources.Get "fonts/FiraCode-Variable.ttf" -}}
+  {{- $title := .Title -}}
+  {{- if .IsHome -}}{{- $title = site.Title -}}{{- end -}}
+  {{- $card := images.Text $title (dict "color" "#d7e0da" "size" 60 "linespacing" 14 "x" 80 "y" 170 "font" $font) -}}
+  {{- $brand := images.Text "janic.dev" (dict "color" "#5fe39a" "size" 32 "x" 80 "y" 540 "font" $font) -}}
+  {{- $img = $base | images.Filter $card $brand -}}
+{{- end -}}
+{{- return dict "url" $img.Permalink "width" $img.Width "height" $img.Height -}}

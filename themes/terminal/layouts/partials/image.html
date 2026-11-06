@@ -1,0 +1,12 @@
+{{- /* Responsive <img> for a page resource. Params: res, alt, class, eager */ -}}
+{{- $res := .res -}}
+{{- $widths := slice 480 800 1200 -}}
+{{- $srcset := slice -}}
+{{- range $widths -}}
+  {{- if le . $res.Width -}}
+    {{- $r := $res.Resize (printf "%dx webp q80" .) -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $r.RelPermalink .) -}}
+  {{- end -}}
+{{- end -}}
+{{- $main := $res.Resize (printf "%dx webp q80" (cond (lt $res.Width 800) $res.Width 800)) -}}
+<img src="{{ $main.RelPermalink }}"{{ with $srcset }} srcset="{{ delimit . ", " }}" sizes="(max-width: 860px) 100vw, 800px"{{ end }} width="{{ $main.Width }}" height="{{ $main.Height }}" alt="{{ .alt }}"{{ with .class }} class="{{ . }}"{{ end }}{{ if .eager }} fetchpriority="high"{{ else }} loading="lazy"{{ end }} decoding="async">

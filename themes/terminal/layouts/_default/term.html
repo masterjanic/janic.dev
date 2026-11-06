@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1 class="list-title">Posts tagged #{{ .Title }}</h1>
+{{- with .Content }}<div class="index-content prose">{{ . }}</div>{{ end }}
+<div class="posts">
+  {{- range .Paginator.Pages }}
+    {{ partial "post-summary.html" . }}
+  {{- end }}
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}

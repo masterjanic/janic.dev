@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>{{ site.Params.author.name }}</h1>
+  <div class="prose">{{ .Content }}</div>
+</section>
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- with $posts }}
+<section class="posts" aria-labelledby="latest-heading">
+  <h2 id="latest-heading" class="section-title">Latest posts</h2>
+  {{- range first site.Params.homePostCount . }}
+    {{ partial "post-summary.html" . }}
+  {{- end }}
+  {{- if gt (len .) site.Params.homePostCount }}
+  <p><a href="{{ "posts/" | relURL }}">All posts</a></p>
+  {{- end }}
+</section>
+{{- end }}
+{{ end }}

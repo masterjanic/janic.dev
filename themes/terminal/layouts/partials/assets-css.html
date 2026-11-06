@@ -1,0 +1,7 @@
+{{- $fontFile := resources.Get "fonts/FiraCode-Latin.woff2" | fingerprint -}}
+{{- $fonts := resources.Get "css-templates/fonts.css" | resources.ExecuteAsTemplate "css/_fonts.css" . -}}
+{{- $sheets := slice $fonts -}}
+{{- range resources.Match "css/*.css" -}}{{- $sheets = $sheets | append . -}}{{- end -}}
+{{- $css := $sheets | resources.Concat "assets/site.css" | minify | fingerprint }}
+<link rel="preload" href="{{ $fontFile.RelPermalink }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">

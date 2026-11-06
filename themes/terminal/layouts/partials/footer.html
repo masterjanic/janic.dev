@@ -1,0 +1,14 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <span>© {{ now.Year }} {{ site.Params.author.name }}</span>
+    <nav aria-label="Footer">
+      {{- range site.Menus.footer }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{- end }}
+    </nav>
+  </div>
+</footer>
+{{- if .IsPage }}
+{{- $js := resources.Get "js/code.js" | js.Build (dict "targetPath" "assets/site.js" "minify" true) | fingerprint }}
+<script src="{{ $js.RelPermalink }}" defer></script>
+{{- end }}

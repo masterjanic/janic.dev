@@ -1,0 +1,82 @@
+baseURL = "https://janic.dev/"
+title = "Janic Bellmann"
+locale = "en-US"
+theme = "terminal"
+titleCaseStyle = "none"
+enableRobotsTXT = true
+enableGitInfo = false
+timeZone = "Europe/Berlin"
+
+[pagination]
+  pagerSize = 10
+  disableAliases = true
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html"]
+  taxonomy = ["html"]
+  term = ["html"]
+
+[taxonomies]
+  tag = "tags"
+
+[frontmatter]
+  date = ["date", "publishDate"]
+  lastmod = ["lastmod", "date"]
+
+[markup.highlight]
+  noClasses = false
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[services.rss]
+  limit = 50
+
+[related]
+  includeNewer = true
+  threshold = 50
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+[menus]
+  [[menus.main]]
+    name = "Posts"
+    pageRef = "/posts"
+    weight = 10
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 20
+  [[menus.footer]]
+    name = "Legal Notice"
+    pageRef = "/legal"
+    weight = 10
+  [[menus.footer]]
+    name = "Privacy Policy"
+    pageRef = "/privacy"
+    weight = 20
+  [[menus.footer]]
+    name = "RSS"
+    url = "/index.xml"
+    weight = 30
+
+[params]
+  logoText = "~/janic.dev"
+  dateFormat = "2006-01-02"
+  homePostCount = 5
+
+  [params.author]
+    name = "Janic Bellmann"
+    email = "contact@janic.dev"
+    sameAs = [
+      "https://github.com/masterjanic",
+      "https://www.linkedin.com/in/janic-bellmann",
+      "https://virtbase.com/en/authors/janic",
+    ]
+
+  [params.virtbase]
+    name = "Virtbase"
+    url = "https://virtbase.com/"

@@ -1,0 +1,7 @@
+{{- with .Params.cover -}}
+  {{- with $.Resources.Get . -}}
+    {{- partial "image.html" (dict "res" . "alt" (or $.Params.coverAlt $.Title) "class" "post-cover" "eager" true) -}}
+  {{- else -}}
+    {{- errorf "%s: cover %q is not a page resource" $.Path . -}}
+  {{- end -}}
+{{- end -}}

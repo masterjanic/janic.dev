@@ -1,0 +1,12 @@
+{{- /*
+  Promo box for Virtbase offers. Paid-style promotion: labelled and rel="sponsored".
+  {{< cta title="Virtbase VPS" href="https://virtbase.com/" button="See plans" >}}Why it fits this post.{{< /cta >}}
+*/ -}}
+{{- $href := .Get "href" | default site.Params.virtbase.url -}}
+<aside class="cta" aria-label="Advertisement">
+  <p class="cta__prompt">$ anzeige --ad</p>
+  <p class="cta__title"><strong>{{ .Get "title" | default site.Params.virtbase.name }}</strong></p>
+  <p>{{ .Inner | .Page.RenderString }}</p>
+  <a class="cta__button" href="{{ $href }}" rel="sponsored">{{ .Get "button" | default "Learn more" }} -&gt;</a>
+  <p class="cta__disclosure">Anzeige (Ad): I'm the founder and managing director of Virtbase.</p>
+</aside>
