@@ -17,5 +17,7 @@ This blog collects notes from my development journey and the practical tips I pi
 ## Get in touch
 
 - Email: [contact@janic.dev](mailto:contact@janic.dev)
+- PGP key: [download from keys.openpgp.org](https://keys.openpgp.org/vks/v1/by-fingerprint/01A9461FF58383F9173BD8A395396995CF5E7932)\
+  Fingerprint: `01A9 461F F583 83F9 173B D8A3 9539 6995 CF5E 7932`
 - GitHub: [masterjanic](https://github.com/masterjanic)
 - LinkedIn: [janic-bellmann](https://www.linkedin.com/in/janic-bellmann)
