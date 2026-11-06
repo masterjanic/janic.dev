@@ -7,8 +7,8 @@ Personal tech blog. Built with [Hugo](https://gohugo.io/) and hosted on Cloudfla
 You need Hugo Extended 0.169.0. The version is pinned in `.github/workflows/deploy.yml`.
 
 ```bash
-hugo server --buildDrafts   # preview at http://localhost:1313
-hugo --minify               # production build into public/
+hugo server --buildDrafts             # preview at http://localhost:1313
+hugo --minify --cleanDestinationDir   # production build into public/, removing old files
 python3 scripts/check_links.py public
 ```
 
